@@ -8,7 +8,7 @@ body {
 
 .container {
     display: flex;
-    max-width: 1400px; /* Increased max-width */
+    max-width: 1400px;
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -95,8 +95,8 @@ body {
     }
 }
 
-/* Medium and Large screens: Outline on the right (sticky) */
-@media (min-width: 801px) {
+/* Medium screens: Outline on the right (sticky) */
+@media (min-width: 801px) and (max-width: 1000px) {
     .container {
         flex-direction: row-reverse; /* Outline on the right */
     }
@@ -117,5 +117,24 @@ body {
     }
 }
 
-/* No specific style for > 1000px with outline on the left anymore.
-   The >= 801px rule now covers sticky outline on the right. */
+/* Large screens: Outline on the left (sticky) */
+@media (min-width: 1001px) {
+    .container {
+        flex-direction: row; /* Outline on the left */
+    }
+
+    .sidebar {
+        width: 280px; /* Adjust width as needed */
+        border-right: 1px solid #ddd;
+        border-left: none;
+        position: sticky; /* Make it sticky */
+        top: 20px; /* Adjust top spacing */
+        height: calc(100vh - 40px); /* Make it take full viewport height minus some spacing */
+        overflow-y: auto; /* Add scroll if the outline is too long */
+    }
+
+    .article {
+        padding-right: 30px; /* Add padding to the right of the article */
+        padding-left: 0; /* Remove default left padding */
+    }
+}
