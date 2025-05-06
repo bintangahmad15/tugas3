@@ -63,7 +63,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Layout Responsif - Daftar Isi Statis */
+/* Layout Responsif */
 
 /* Lebar maksimal 800px: Outline di atas konten */
 @media (max-width: 800px) {
@@ -83,10 +83,13 @@ body {
     }
 }
 
-/* Lebar lebih dari 800px: Outline di kanan (tidak sticky) */
+/* Lebar lebih dari 800px: Outline di kanan (sticky) */
 @media (min-width: 801px) and (max-width: 1000px) {
     .sidebar {
         width: 30%;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
         margin-left: 20px;
     }
 
@@ -95,7 +98,7 @@ body {
     }
 }
 
-/* Lebar lebih dari 1000px: Outline di kiri (tidak sticky) */
+/* Lebar lebih dari 1000px: Outline di kiri (sticky) */
 @media (min-width: 1001px) {
     .container {
         flex-direction: row;
@@ -103,6 +106,9 @@ body {
 
     .sidebar {
         width: 25%;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
         margin-right: 20px;
     }
 
