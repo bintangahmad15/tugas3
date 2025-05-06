@@ -1,1 +1,120 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
 
+.container {
+    display: flex;
+    max-width: 1400px; /* Increased max-width to accommodate wider layouts */
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: auto; /* Enable scroll if content overflows */
+}
+
+.sidebar {
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.outline {
+    list-style: none;
+    padding: 0;
+}
+
+.outline li {
+    margin-bottom: 10px;
+}
+
+.outline a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.outline a:hover {
+    background-color: #e0f7fa;
+    color: #0056b3;
+}
+
+.article {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.article section {
+    margin-bottom: 50px;
+}
+
+.article h1, .article h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.article h3 {
+    color: #555;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.article ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.article li {
+    margin-bottom: 8px;
+}
+
+/* Small screens: Outline on top */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+        position: static; /* Disable sticky */
+    }
+}
+
+/* Medium screens: Outline on the right (sticky) */
+@media (min-width: 801px) and (max-width: 1000px) {
+    .container {
+        flex-direction: row-reverse; /* Sidebar on the right */
+    }
+
+    .sidebar {
+        width: 280px; /* Adjust width as needed */
+        border-left: 1px solid #ddd;
+        border-right: none;
+        position: sticky;
+        top: 20px; /* Adjust top spacing as needed */
+        height: calc(100vh - 40px); /* Adjust height as needed */
+        overflow-y: auto;
+    }
+
+    .article {
+        padding-right: 30px; /* Add padding to the left of the article */
+    }
+}
+
+/* Large screens: Outline on the left (sticky) */
+@media (min-width: 1001px) {
