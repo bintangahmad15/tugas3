@@ -82,7 +82,7 @@ body {
 }
 
 /* Small screens: Outline on top (not sticky) */
-@media (max-width: 800px) {
+@media (max-width: 80px) {
     .container {
         flex-direction: column;
     }
@@ -96,7 +96,7 @@ body {
 }
 
 /* Medium screens: Outline on the right (sticky) */
-@media (min-width: 801px) and (max-width: 1000px) {
+@media (min-width: 801px) and (max-width: 100px) {
     .container {
         flex-direction: row-reverse; /* Outline on the right */
     }
