@@ -8,12 +8,12 @@ body {
 
 .container {
     display: flex;
-    max-width: 1400px; /* Increased max-width to accommodate wider layouts */
+    max-width: 1400px; /* Increased max-width */
     margin: 0 auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: auto; /* Enable scroll if content overflows */
+    overflow: auto;
 }
 
 .sidebar {
@@ -81,7 +81,7 @@ body {
     margin-bottom: 8px;
 }
 
-/* Small screens: Outline on top */
+/* Small screens: Outline on top (not sticky) */
 @media (max-width: 800px) {
     .container {
         flex-direction: column;
@@ -91,30 +91,31 @@ body {
         width: 100%;
         border-bottom: 1px solid #ddd;
         margin-bottom: 20px;
-        position: static; /* Disable sticky */
+        position: static;
     }
 }
 
-/* Medium screens: Outline on the right (sticky) */
-@media (min-width: 801px) and (max-width: 1000px) {
+/* Medium and Large screens: Outline on the right (sticky) */
+@media (min-width: 801px) {
     .container {
-        flex-direction: row-reverse; /* Sidebar on the right */
+        flex-direction: row-reverse; /* Outline on the right */
     }
 
     .sidebar {
         width: 280px; /* Adjust width as needed */
         border-left: 1px solid #ddd;
         border-right: none;
-        position: sticky;
-        top: 20px; /* Adjust top spacing as needed */
-        height: calc(100vh - 40px); /* Adjust height as needed */
-        overflow-y: auto;
+        position: sticky; /* Make it sticky */
+        top: 20px; /* Adjust top spacing */
+        height: calc(100vh - 40px); /* Make it take full viewport height minus some spacing */
+        overflow-y: auto; /* Add scroll if the outline is too long */
     }
 
     .article {
-        padding-right: 30px; /* Add padding to the left of the article */
+        padding-left: 30px; /* Add padding to the left of the article */
+        padding-right: 0; /* Remove default right padding */
     }
 }
 
-/* Large screens: Outline on the left (sticky) */
-@media (min-width: 1001px) {
+/* No specific style for > 1000px with outline on the left anymore.
+   The >= 801px rule now covers sticky outline on the right. */
