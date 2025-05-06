@@ -1,19 +1,18 @@
 body {
     font-family: sans-serif;
     margin: 20px;
+    line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
 }
 
 .container {
     display: flex;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: auto;
 }
 
 .sidebar {
@@ -22,119 +21,98 @@ body {
 
 .sidebar h2 {
     margin-top: 0;
-    color: #555;
-    margin-bottom: 15px;
+    color: #007bff;
 }
 
-.outline {
-    list-style: none;
+.sidebar ol {
+    list-style-type: none;
     padding: 0;
 }
 
-.outline li {
+.sidebar ol li {
     margin-bottom: 10px;
 }
 
-.outline a {
+.sidebar ol li a {
     text-decoration: none;
-    color: #007bff;
+    color: #333;
     display: block;
     padding: 8px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 3px solid transparent;
+    transition: border-left 0.3s ease;
 }
 
-.outline a:hover {
-    background-color: #e0f7fa;
-    color: #0056b3;
+.sidebar ol li a:hover {
+    border-left-color: #007bff;
 }
 
-.article {
+.content {
     flex-grow: 1;
-    padding: 30px;
+    padding: 20px;
 }
 
-.article section {
-    margin-bottom: 50px;
-}
-
-.article h1, .article h2 {
+.content h1, .content h2 {
     color: #333;
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
 }
 
-.article h3 {
-    color: #555;
-    margin-top: 25px;
-    margin-bottom: 10px;
+.content section {
+    margin-bottom: 30px;
 }
 
-.article ul {
-    padding-left: 20px;
+.content p {
     margin-bottom: 15px;
 }
 
-.article li {
-    margin-bottom: 8px;
-}
+/* Layout Responsif */
 
-/* Small screens: Outline on top (not sticky) */
-@media (max-width: 80px) {
+/* Lebar maksimal 800px: Outline di atas konten */
+@media (max-width: 800px) {
     .container {
         flex-direction: column;
     }
 
     .sidebar {
         width: 100%;
-        border-bottom: 1px solid #ddd;
         margin-bottom: 20px;
-        position: static;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+    }
+
+    .sidebar h2 {
+        text-align: center;
     }
 }
 
-/* Medium screens: Outline on the right (sticky) */
-@media (min-width: 801px) and (max-width: 100px) {
-    .container {
-        flex-direction: row-reverse; /* Outline on the right */
-    }
-
+/* Lebar lebih dari 800px: Outline di kanan (sticky) */
+@media (min-width: 801px) and (max-width: 1000px) {
     .sidebar {
-        width: 280px; /* Adjust width as needed */
-        border-left: 1px solid #ddd;
-        border-right: none;
-        position: sticky; /* Make it sticky */
-        top: 20px; /* Adjust top spacing */
-        height: calc(100vh - 40px); /* Make it take full viewport height minus some spacing */
-        overflow-y: auto; /* Add scroll if the outline is too long */
+        width: 30%;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        margin-left: 20px;
     }
 
-    .article {
-        padding-left: 30px; /* Add padding to the left of the article */
-        padding-right: 0; /* Remove default right padding */
+    .content {
+        width: 70%;
     }
 }
 
-/* Large screens: Outline on the left (sticky) */
+/* Lebar lebih dari 1000px: Outline di kiri (sticky) */
 @media (min-width: 1001px) {
     .container {
-        flex-direction: row; /* Outline on the left */
+        flex-direction: row;
     }
 
     .sidebar {
-        width: 280px; /* Adjust width as needed */
-        border-right: 1px solid #ddd;
-        border-left: none;
-        position: sticky; /* Make it sticky */
-        top: 20px; /* Adjust top spacing */
-        height: calc(100vh - 40px); /* Make it take full viewport height minus some spacing */
-        overflow-y: auto; /* Add scroll if the outline is too long */
+        width: 25%;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        margin-right: 20px;
     }
 
-    .article {
-        padding-right: 30px; /* Add padding to the right of the article */
-        padding-left: 0; /* Remove default left padding */
+    .content {
+        width: 75%;
     }
 }
